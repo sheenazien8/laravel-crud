@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('santri/create', 'SantriController@create')->name('santri.create');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::post('santri', 'SantriController@store')->name('santri.store');
