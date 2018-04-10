@@ -5,13 +5,25 @@
 
   @csrf
 
-  <input type="text" name="nama" placeholder="Masukkan Namamu">
-  <br>
-  <input type="text" name="umur" placeholder="Masukkan umur">
-  <br>
-  <textarea name="alamat" placeholder="Masukkan alamat"></textarea>
-  <br>
-  <input type="text" name="jenis_kelamin" placeholder="jenis kelamin">
-  <br>
+  <input type="text" name="nama" placeholder="Masukkan Namamu"><br>
+  @if ($errors->has('nama'))
+    <strong>{{ $errors->first('nama')}}</strong>
+  @endif
+
+  <input type="text" name="umur" placeholder="Masukkan umur"><br>
+  @if ($errors->has('umur'))
+    <strong>{{ $errors->first('umur')}}</strong>
+  @endif
+
+  <textarea name="alamat" placeholder="Masukkan alamat"></textarea><br>
+  @if ($errors->has('alamat'))
+    <strong>{{ $errors->first('alamat')}}</strong>
+  @endif
+
+  <input type="text" name="jenis_kelamin" placeholder="jenis kelamin"><br>
+  @if ($errors->has('jenis_kelamin'))
+    <strong>{{ $errors->first('jenis_kelamin')}}</strong>
+  @endif
+
   <input type="submit" name="submit" value="Submit">
 </form>
