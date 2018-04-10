@@ -26,4 +26,5 @@
   @endif
 
   <input type="submit" name="submit" value="Submit">
+  <a href="{{route('santri.index')}}">Kembali ke halaman utama</a>
 </form>

@@ -10,11 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('santri/create', 'SantriController@index')->name('santri.index');
+Route::get('santris', 'SantriController@index')->name('santri.index');
 
-Route::get('santri/create', 'SantriController@create')->name('santri.create');
+Route::get('santris/create', 'SantriController@create')->name('santri.create');
 
-Route::post('santri', 'SantriController@store')->name('santri.store');
+Route::post('santris', 'SantriController@store')->name('santri.store');
 
 Auth::routes();
 

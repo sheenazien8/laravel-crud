@@ -6,37 +6,48 @@ use Illuminate\Http\Request;
 
 class SantriController extends Controller
 {
-    public function create()
-    {
-      return view('santri.create');
-    }
-    public function store(Request $request)
-    {
-      
-      //validation
-      $request->validate([
-        'nama' => 'required',
-        'umur' => 'required',
-        'alamat' => 'required',
-        'jenis_kelamin' => 'required'
-      ]);
+  //menampilkan data
+  public function index()
+  {
+    $santris = Santri::all();
 
-      //memasukkan data ke database
-      // dd($request->all());
-      $nama = $request->nama;
-      $umur = $request->umur;
-      $alamat = $request->alamat;
-      $jenis_kelamin = $request->jenis_kelamin;
+    return view('santri.index', compact('santris'));
+  }
 
-      Santri::create([
-        'nama' => $nama,
-        'umur' => $umur,
-        'alamat' =>$alamat,
-        'jenis_kelamin' =>$jenis_kelamin,
-      ]);
+  //nampilin form
+  public function create()
+  {
+    return view('santri.create');
+  }
 
-      return redirect()->route('santri.create');
-      // return view('santri.create');
-      // return redirect()->url('santri/create');
-    }
+  //menyimpan
+  public function store(Request $request)
+  {
+
+    //validation
+    $request->validate([
+      'nama' => 'required',
+      'umur' => 'required',
+      'alamat' => 'required',
+      'jenis_kelamin' => 'required'
+    ]);
+
+    //memasukkan data ke database
+    // dd($request->all());
+    $nama = $request->nama;
+    $umur = $request->umur;
+    $alamat = $request->alamat;
+    $jenis_kelamin = $request->jenis_kelamin;
+
+    Santri::create([
+      'nama' => $nama,
+      'umur' => $umur,
+      'alamat' =>$alamat,
+      'jenis_kelamin' =>$jenis_kelamin,
+    ]);
+
+    return redirect()->route('santri.create');
+    // return view('santri.create');
+    // return redirect()->url('santri/create');
+  }
 }
