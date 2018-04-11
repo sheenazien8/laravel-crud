@@ -27,26 +27,36 @@ class SantriController extends Controller
     //validation
     $request->validate([
       'nama' => 'required',
-      'umur' => 'required',
+      'umur' => 'required|integer',
       'alamat' => 'required',
       'jenis_kelamin' => 'required'
     ]);
 
-    //memasukkan data ke database
     // dd($request->all());
-    $nama = $request->nama;
-    $umur = $request->umur;
-    $alamat = $request->alamat;
-    $jenis_kelamin = $request->jenis_kelamin;
+    //cara satu memasukkan data ke database
+    // $nama = $request->nama;
+    // $umur = $request->umur;
+    // $alamat = $request->alamat;
+    // $jenis_kelamin = $request->jenis_kelamin;
+    //
+    // Santri::create([
+    //   'nama' => $nama,
+    //   'umur' => $umur,
+    //   'alamat' =>$alamat,
+    //   'jenis_kelamin' =>$jenis_kelamin,
+    // ]);
 
-    Santri::create([
-      'nama' => $nama,
-      'umur' => $umur,
-      'alamat' =>$alamat,
-      'jenis_kelamin' =>$jenis_kelamin,
-    ]);
+    //cara dua memasukkan data ke database
+    // $data['nama'] = $request->nama;
+    // $data['umur'] = $request->umur;
+    // $data['alamat'] = $request->alamat;
+    // $data['jenis_kelamin'] = $request->jenis_kelamin;
+    //
+    // Santri::create($data);
 
-    return redirect()->route('santri.create');
+    Santri::create($request->all());
+
+    return redirect()->route('santri.index');
     // return view('santri.create');
     // return redirect()->url('santri/create');
   }

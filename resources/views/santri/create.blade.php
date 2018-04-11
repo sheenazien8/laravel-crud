@@ -1,6 +1,6 @@
 <h1>input Data Santri</h1>
 <!-- <form action="santri" method="post"> -->
-<!-- <form action="{{ url('santri.store') }}" method="post"> -->
+{{-- <!-- <form action="{{ url('santri.store') }}" method="post"> --> --}}
 <form action="{{ route('santri.index') }}" method="post">
 
   @csrf
@@ -26,5 +26,5 @@
   @endif
 
   <input type="submit" name="submit" value="Submit">
-  <a href="{{route('santri.index')}}">Batal</a>
+  <button type="button" name="button"><a href="{{route('santri.index')}}">Batal</a></button>
 </form>
