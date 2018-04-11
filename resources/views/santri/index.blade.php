@@ -20,7 +20,13 @@
           <td>{{$santri->jenis_kelamin}}</td>
           <td>
             <a href="{{ route('santri.show',$santri->id)}}">Details</a>
-            <a href="{{ route('santri.edit',$santri->id)}}">Edit</a> 
+            <a href="{{ route('santri.edit',$santri->id)}}">Edit</a>
+            <form action="{{ route('santri.destroy',$santri->id)}}" method="post">
+              @csrf
+              @method('DELETE')
+
+              <button type="submit">Hapus</button>
+            </form>
           </td>
 
         </tr>
