@@ -32,7 +32,6 @@ class SantriController extends Controller
       'jenis_kelamin' => 'required'
     ]);
 
-    // dd($request->all());
     //cara satu memasukkan data ke database
     // $nama = $request->nama;
     // $umur = $request->umur;
@@ -59,5 +58,16 @@ class SantriController extends Controller
     return redirect()->route('santri.index');
     // return view('santri.create');
     // return redirect()->url('santri/create');
+  }
+  public function show($id)
+  {
+    $santris = Santri::findOrFail($id);
+
+    return view('santri.show',compact('santris'));
+  }
+  public function edit($id)
+  {
+    $santri = Santri::findOrFail($id);
+    return view('santri.edit',compact('santri'));
   }
 }
