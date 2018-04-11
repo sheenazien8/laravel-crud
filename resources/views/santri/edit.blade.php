@@ -1,9 +1,10 @@
 <h1>Edit Data Santri</h1>
 <!-- <form action="santri" method="post"> -->
 {{-- <!-- <form action="{{ url('santri.store') }}" method="post"> --> --}}
-<form action="{{ route('santri.store') }}" method="post">
-
+<form action="{{ route('santri.update',$santri->id) }}" method="post">
   @csrf
+  {{-- @method('PATCH') --}}
+  {{method_field('PATCH')}}
 
   <input type="text" name="nama" value="{{$santri->nama}}"><br>
   @if ($errors->has('nama'))
