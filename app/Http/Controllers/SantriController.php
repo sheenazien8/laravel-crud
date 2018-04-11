@@ -74,14 +74,24 @@ class SantriController extends Controller
   public function update(Request $request, $id)
   {
     $santri = Santri::findOrFail($id);
+    //cara 1
+    // $santri->nama = $request->nama;
+    // $santri->umur = $request->umur;
+    // $santri->alamat = $request->alamat;
+    // $santri->jenis_kelamin = $request->jenis_kelamin;
+    //
+    // $santri->save();
 
-    $santri->nama = $request->nama;
-    $santri->umur = $request->umur;
-    $santri->alamat = $request->alamat;
-    $santri->jenis_kelamin = $request->jenis_kelamin;
+    //cara 2
+    // $santri->update([
+    //   'nama' => $request->nama,
+    //   'umur' => $request->umur,
+    //   'alamat' => $request->alamat,
+    //   'jenis_kelamin' => $request->jenis_kelamin,
+    // ]);
 
-    $santri->save();
-
+    //cara 3
+    $santri->update($request->all());
     return redirect()->route('santri.index');
   }
   public function destroy($id)
